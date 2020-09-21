@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     
     this.subscription.add(this.loginService.postData(url,data).subscribe(data => {
       config.close()
-     this.route.navigate(['/dashboard'])
+     this.route.navigate(['/admin/admin-catalog'])
     }, error => {
     }));
   }
