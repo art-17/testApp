@@ -17,7 +17,7 @@ export class ServiceapiService {
     // let localuserdata = this.sharedService.getLocaldata();
     this.token = '';
     return new HttpHeaders().set('Content-Type', 'application/json').set('Accept-Language', this.sharedService.LANGUAGE)
-      .set('token', this.token);
+      .set('Authorization', 'UltEZrneU_mzpa3ztNwG5-Iu92Ylp11k');
   }
   noauthPost(url, data) {
     const Url = this.baseurl + url
@@ -37,5 +37,14 @@ export class ServiceapiService {
       return throwError(errorMessage);
     }
     return throwError(errorMessage);
+  }
+  Post(url, data) {
+    const Url = this.baseurl + url
+    return this.httpclient.post(Url, data,{ headers: this.setHeader() }).pipe(
+      catchError(errorRes => {
+        return this.handleError(errorRes);
+      }), tap(resData => {
+        
+      }));
   }
 }
