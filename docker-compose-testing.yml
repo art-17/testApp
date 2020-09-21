@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  parksharing-webapp:
+    image: "node:10.16"
+    container_name: parksharing-webapp
+    
+    ports:
+      - 4200
+   
+    volumes:
+      - .:/home/node/app
+
+    command: bash -c "cd /home/node/app/ && npm install && npm install -g @angular/cli@8.3.0 && ng serve --host 0.0.0.0"
+ 
+    environment:
+      - VIRTUAL_HOST=parksharing-webapp.10.1.1.57.xip.io,parksharing-webapp.80.79.25.57.xip.io
+      - VIRTUAL_PORT=4200
+      
+    networks:
+      - nginxproxy_nginx_net
+
+networks:
+    nginxproxy_nginx_net:
+         external: true

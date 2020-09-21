@@ -1,0 +1,46 @@
+variables:
+  GIT_STRATEGY: none
+
+stages:
+  - deploy-test
+  - info-failed
+  - info-ok
+
+deploy-test:
+  stage: deploy-test
+  only:
+    - test
+  tags:
+    - test-java-01
+  variables:
+    GIT_STRATEGY: clone
+  
+  script:
+   
+    - sudo docker-compose -f docker-compose-testing.yml down -v
+    - sudo docker-compose -f docker-compose-testing.yml up -d
+
+
+sent-status-failed:
+  stage: info-failed
+  tags:
+    - test
+  variables:
+    GIT_STRATEGY: none
+  when: on_failure
+  script:
+    - 'curl --insecure --silent -H "X-Auth-Token: mu5Ao_RufD5NFv_BPkRzsQFbuC2etz0Ge2LrH4B0OA2" -H "X-User-Id: HoGhZPH4SRoNPATmA" -H "Content-type: application/json" https://rc.axfone.eu/api/v1/chat.postMessage  -d "{ \"channel\": \"#ci-cd\", \"text\": \":exclamation: - *Gitlab-CI* - *Project:* $CI_PROJECT_NAME - *Branch:* $CI_COMMIT_REF_NAME - *Status:* pipeline FAILED - *CommitMsg:* $CI_COMMIT_TITLE\" }"'
+
+sent-status-ok:
+  stage: info-ok
+  tags:
+    - test
+  variables:
+    GIT_STRATEGY: none
+  only:
+    - test
+    - stage
+    - prod
+  when: on_success
+  script:
+    - 'curl --insecure --silent -H "X-Auth-Token: mu5Ao_RufD5NFv_BPkRzsQFbuC2etz0Ge2LrH4B0OA2" -H "X-User-Id: HoGhZPH4SRoNPATmA" -H "Content-type: application/json" https://rc.axfone.eu/api/v1/chat.postMessage  -d "{ \"channel\": \"#ci-cd\", \"text\": \":white_check_mark: - *Gitlab-CI* - *Project:* $CI_PROJECT_NAME - *Branch:* $CI_COMMIT_REF_NAME - *Status:* pipeline OK - *CommitMsg:* $CI_COMMIT_TITLE\" }"'
