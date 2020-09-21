@@ -18,7 +18,7 @@ deploy-test:
   script:
    
     - sudo docker-compose -f docker-compose-testing.yml down -v
-    - sudo docker-compose -f docker-compose-testing.yml up -d --remove-orphans
+    - sudo docker-compose -f docker-compose-testing.yml up -d
 
 
 sent-status-failed:
