@@ -1,0 +1,202 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Josefin Sans', sans-serif; color: #272727; }
+*{
+    font-family: 'Josefin Sans', sans-serif;  
+}
+button, button:focus{
+    outline: none;
+}
+h1, .h1 {
+    font-size: 3rem;
+}
+.c-white{
+    color: #ffffff;
+}
+.c-muted{
+    color: #9583AC;
+}
+.b-radius-4{
+    border-radius: 4px;
+}
+.b-radius-5{
+    border-radius: 5px;
+}
+.f-weight-300{
+    font-weight: 300;
+}
+.f-weight-400{
+    font-weight: 400;
+}
+.f-weight-500{
+    font-weight: 500;
+}
+.f-weight-600{
+    font-weight: 600;
+}
+.f-weight-700{
+    font-weight: 700;
+}
+.f-size-14{
+    font-size: 14px;
+}
+.f-size-16{
+    font-size: 16px;
+}
+.f-size-18{
+    font-size: 18px;
+}
+.btn-primary{
+    background: linear-gradient(269.97deg, #176BFF 0.02%, #8526FF 101.53%);
+box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.1);
+position: relative;
+}
+.mat-form-field-appearance-outline:not(.mat-form-field-disabled) .mat-form-field-flex:hover .mat-form-field-outline-thick {
+    opacity: 1;
+    background: #fff;
+}
+.mat-form-field-outline {
+    background: #F4F4F4;
+    border-radius: 5px
+}
+.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color:#176BFF;
+}
+.mat-form-field-appearance-outline .mat-form-field-infix {
+    padding: 0.3em 0 0.8em 0;
+}
+.app-header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    z-index: 10;
+    transition: all .2s;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
+.app-header__logo {
+    padding: 0 1.5rem;
+    height: 60px;
+    width: 280px;
+    display: flex;
+    align-items: center;
+    transition: width .2s;
+}
+.app-header .app-header__content {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex: 1;
+    padding: 0 1.5rem;
+    height: 60px;
+}
+.app-header .app-header__content .app-header-left {
+    display: flex;
+    align-items: center;
+}
+.app-header .app-header__content .app-header-right {
+    align-items: center;
+    display: flex;
+    margin-left: auto;
+}
+.mat-toolbar.toolbar-primary{
+    background: #fafbfc;
+    border-bottom: 1px solid #E0E0E0;
+    box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 0.02), 0 0.9375rem 1.40625rem rgb(255 255 255 / 3%), 0 0.25rem 0.53125rem rgb(208 208 208 / 5%), 0 0.125rem 0.1875rem rgba(4,9,20,0.03);
+}
+.app-main-content .app-content-inner{
+    padding: 50px 60px 0;
+    flex: 1;
+}
+
+// ====Mega Menu====
+
+.mega-menu .mat-menu-content {
+    display: flex;
+    padding: 0px !important;
+}
+.mega-menu.mat-menu-panel {
+    width: 100%;
+    max-width: 100%;
+}
+.mega-menu button.mat-menu-item {
+    height: auto;
+    outline: none;
+    padding: 30px 35px;
+}
+.header-megamenu .nav-link.mat-menu-link{
+    font-family: Josefin Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.01em;
+    color: #5F487B;
+}
+.mega-menu .menu-content {
+    padding: 0 20px;
+}
+.mega-menu .menu-content .menu-item-icon {
+    width: 75px;
+    margin-bottom: 20px;
+}
+.mega-menu .menu-content h5{
+    
+}
+.mega-menu .menu-content p{
+    line-height: 22px;
+    width: 180px;
+    overflow: visible;
+    white-space: pre-wrap;
+    height: 42px;
+}
+// ========Resonsive Queries=========
+
+@media (max-width: 1024px) {
+   
+}
+
+@media (max-width: 992px) {
+    .mega-menu.mat-menu-panel {
+        width: initial;
+        max-width: initial;
+    }
+    .mega-menu button.mat-menu-item {
+        padding: 0px;
+    }
+    .mega-menu .mat-menu-content {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .mega-menu .menu-content .menu-item-icon {
+        width: 40px;
+        margin-bottom: 10px;
+    }
+    .mega-menu .menu-content h5{
+        font-size: 15px; 
+    }
+    .mega-menu .menu-content p {
+        line-height: 17px;
+        width: 180px;
+        overflow: visible;
+        white-space: pre-wrap;
+        height: 25px;
+    }
+    .mega-menu .menu-content {
+        padding: 6px 11px;
+    }
+}
+
+
