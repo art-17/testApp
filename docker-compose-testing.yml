@@ -11,7 +11,7 @@ services:
     volumes:
       - .:/home/node/app
 
-    command: bash -c "cd /home/node/app/ && npm install && npm install -g @angular/cli@8.3.0 && ng serve --host 0.0.0.0"
+    command: bash -c "cd /home/node/app/ && npm install && npm install -g @angular/cli@8.3.0 && ng serve --host 0.0.0.0 --disable-host-check"
  
     environment:
       - VIRTUAL_HOST=parksharing-webapp.10.1.1.57.xip.io,parksharing-webapp.80.79.25.57.xip.io
