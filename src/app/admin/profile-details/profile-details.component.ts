@@ -34,7 +34,7 @@ export class ProfileDetailsComponent implements OnInit {
     });
   }
 
-  editRegistration() {
+  editRegistration(status) {
     const title="Edit Profile"
     this.dialogRef = this.matdialog.open(RegistrationComponent, {
       width: '750px',
@@ -47,13 +47,13 @@ export class ProfileDetailsComponent implements OnInit {
       }
     });
     this.dialogRef.componentInstance.submitAction.subscribe(() => {
-      // this.getprofiledetails()
+      this.getprofiledetails()
+     
       this.dialogRef.close();
       });
   }
 
   private getprofiledetails(): void {
-    
     const url = `getAdminDetails`
     const  params={
       "uniqueid":"1001"

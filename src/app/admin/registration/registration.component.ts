@@ -12,6 +12,7 @@ export interface DialogData {
   title: string;
   message: string;
   modalData: any;
+  status:boolean
 
 }
 @Component({
@@ -28,6 +29,8 @@ export class RegistrationComponent implements OnInit {
   public submitted = false;
   ngOnInit() {
     if (this.data.modalData) {
+      console.log(this.data.status)
+
       // this.admin = this.data.modalData;
       this.admin.name=this.data.modalData.name
       this.admin.mobileno=this.data.modalData.mobile
