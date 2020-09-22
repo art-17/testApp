@@ -23,8 +23,10 @@ export class ProfileDetailsComponent implements OnInit {
   }
   changePassword() {
     this.dialogRef = this.matdialog.open(ChangePasswordComponent, {
+      width: '450px',
       disableClose: true,
       id: '',
+      
       data: {
         button_close: "CLOSE",
       }
@@ -33,8 +35,9 @@ export class ProfileDetailsComponent implements OnInit {
 
   editRegistration() {
     this.dialogRef = this.matdialog.open(RegistrationComponent, {
+      width: '750px',
       disableClose: true,
-      id: '',
+      panelClass: 'custom-dialog-style-1',
       data: {
         button_close: "CLOSE",
       }

@@ -22,7 +22,8 @@ import { CoreModule } from './core/core.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

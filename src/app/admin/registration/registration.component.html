@@ -1,5 +1,43 @@
-<h1 mat-dialog-title>Dialog with elements</h1>
-<div mat-dialog-content>This dialog showcases the title, close, content and actions elements.</div>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Close</button>
+<div class="p-0">
+    <div class="d-block pt-3 dialog-heading">
+        <div>
+            <h1 mat-dialog-title class="f-weight-600 mb-3 pl-4">Edit Profile</h1>
+        </div>
+    </div>
+    <div mat-dialog-content class="">
+        <div class="px-5 py-3">
+            <form>
+                <div class="d-block my-2">
+                        <h6 mat-dialog-title class="f-weight-500">Basic Details</h6>
+                </div>
+                <div class="row">
+                    <div class="input-group-theme-2 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+                        <mat-label class="c-muted">Name</mat-label>
+                        <mat-form-field appearance="outline" class="d-block">
+                            <input matInput type="text">
+                            <!-- <mat-error *ngIf="submitted && f?.password?.errors">Please enter password</mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div class="input-group-theme-2 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+                        <mat-label class="c-muted">Email ID</mat-label>
+                        <mat-form-field appearance="outline" class="d-block">
+                            <input matInput type="email">
+                            <!-- <mat-error *ngIf="submitted && f?.password?.errors">Please enter password</mat-error> -->
+                        </mat-form-field>
+                    </div>
+                    <div class="input-group-theme-2 col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-3">
+                        <mat-label class="c-muted">Mobile Number</mat-label>
+                        <mat-form-field appearance="outline" class="d-block">
+                            <input matInput type="number">
+                            <!-- <mat-error *ngIf="submitted && f?.password?.errors">Please enter password</mat-error> -->
+                        </mat-form-field>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <mat-dialog-actions align="end">
+        <button mat-button class="btn-outline-0-primary" mat-dialog-close >Cancel and Back</button>
+        <button mat-button [mat-dialog-close]="true" cdkFocusInitial class="btn btn-primary mb-2">Create Account</button>
+    </mat-dialog-actions>
 </div>
