@@ -29,15 +29,7 @@ export class ServiceapiService {
       }));
   }
 
-  private handleError(errorRes) {
-    console.log("ERROR", errorRes);
-    let errorMessage = 'Internal Server error'
-    if (errorRes.error && (errorRes.error.status_msg || errorRes.error.statusMsg)) {
-      errorMessage = errorRes.error.status_msg || errorRes.error.statusMsg;
-      return throwError(errorMessage);
-    }
-    return throwError(errorMessage);
-  }
+ 
   Post(url, data) {
     const Url = this.baseurl + url
     return this.httpclient.post(Url, data,{ headers: this.setHeader() }).pipe(
@@ -46,5 +38,14 @@ export class ServiceapiService {
       }), tap(resData => {
         
       }));
+  }
+  private handleError(errorRes) {
+    console.log("ERROR", errorRes);
+    let errorMessage = 'Internal Server error'
+    if (errorRes.error && (errorRes.error.status_msg || errorRes.error.statusMsg)) {
+      errorMessage = errorRes.error.status_msg || errorRes.error.statusMsg;
+      return throwError(errorMessage);
+    }
+    return throwError(errorMessage);
   }
 }
