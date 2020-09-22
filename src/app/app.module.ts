@@ -24,6 +24,7 @@ import { CoreModule } from './core/core.module';
     HttpClientModule,
     CoreModule,
     
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

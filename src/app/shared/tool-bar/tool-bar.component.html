@@ -11,19 +11,54 @@
                     <li class="nav-item" [matMenuTriggerFor]="megamenu" (click)="ongetMenu()">
                         <a href="javascript:void(0);" data-placement="bottom" rel="popover-focus" data-offset="300"
                             data-toggle="popover-custom" class="nav-link mat-menu-link" data-original-title="" title="">
-                            <i class="nav-link-icon pe-7s-gift "> </i> Explore<span class="material-icons">expand_more</span>
+                            <i class="nav-link-icon pe-7s-gift "> </i> Explore<span
+                                class="material-icons">expand_more</span>
                         </a>
                     </li>
                 </ul>
                 <mat-menu #megamenu="matMenu" class="mega-menu">
-                    <button mat-menu-item *ngFor="let menu of menuList">
+
+                    <button mat-menu-item *ngIf="isloading">
                         <div class="menu-content">
-                            <img *ngIf="menu.menuName=='Parking Places'" src="assets/images/m-1.svg" class="menu-item-icon">
+                            <ngx-shimmer-loading [width]="'50px'" [height]="'60px'"></ngx-shimmer-loading>
+
+
+                        </div>
+                    </button>
+                    <button mat-menu-item *ngIf="isloading">
+                        <div class="menu-content">
+                            <ngx-shimmer-loading [width]="'50px'" [height]="'60px'"></ngx-shimmer-loading>
+
+                        </div>
+                    </button>
+                    <button mat-menu-item *ngIf="isloading">
+                        <div class="menu-content">
+                            <ngx-shimmer-loading [width]="'50px'" [height]="'60px'"></ngx-shimmer-loading>
+
+
+                        </div>
+                    </button>
+                    <button mat-menu-item *ngIf="isloading">
+                        <div class="menu-content">
+                            <ngx-shimmer-loading [width]="'50px'" [height]="'60px'"></ngx-shimmer-loading>
+
+
+                        </div>
+                    </button>
+
+                    <button mat-menu-item *ngFor="let menu of menuList">
+                        <div class="menu-content" (click)="onNavigation(menu.menuName)">
+                            <img *ngIf="menu.menuName=='Parking Places'" src="assets/images/m-1.svg"
+                                class="menu-item-icon">
                             <img *ngIf="menu.menuName=='Invoices'" src="assets/images/m-2.svg" class="menu-item-icon">
-                            <img *ngIf="menu.menuName=='Registration of Lessor'" src="assets/images/m-3.svg" class="menu-item-icon">
-                            <img  *ngIf="menu.menuName=='Registration of Admin'" src="assets/images/m-4.svg" class="menu-item-icon">
-                            <img  *ngIf="menu.menuName=='Create New Parking'" src="assets/images/m-4.svg" class="menu-item-icon">
-                            <img *ngIf="menu.menuName=='Contact Admin'" src="assets/images/m-6.svg" class="menu-item-icon">
+                            <img *ngIf="menu.menuName=='Registration of Lessor'" src="assets/images/m-3.svg"
+                                class="menu-item-icon">
+                            <img *ngIf="menu.menuName=='Registration of Admin'" src="assets/images/m-4.svg"
+                                class="menu-item-icon">
+                            <img *ngIf="menu.menuName=='Create New Parking'" src="assets/images/m-4.svg"
+                                class="menu-item-icon">
+                            <img *ngIf="menu.menuName=='Contact Admin'" src="assets/images/m-6.svg"
+                                class="menu-item-icon">
                             <h5>{{menu.menuName}}</h5>
                             <p class="c-muted">{{menu.subText}}</p>
                         </div>
@@ -63,7 +98,7 @@
                             <p class="c-muted">Can contact admin for any help.</p>
                         </div>
                     </button> -->
-                  </mat-menu>
+                </mat-menu>
             </div>
             <div class="app-header-right">
                 <div class="header-btn-lg pr-5">
@@ -73,18 +108,18 @@
                                 <div class="user-avatar sm bg-azure-dim f-weight-400" [matMenuTriggerFor]="menu">
                                     <span>DE</span>
                                 </div>
-                                  <mat-menu #menu="matMenu">
+                                <mat-menu #menu="matMenu">
                                     <button mat-menu-item (click)="profiledetails()">
                                         <mat-icon>power_settings_new</mat-icon>
                                         <span>Profile Details</span>
-                                      </button>
-                                    <button mat-menu-item>
-                                      <mat-icon>power_settings_new</mat-icon>
-                                      <span>Log Out</span>
                                     </button>
-                                    
-                                  </mat-menu>
-                                
+                                    <button mat-menu-item>
+                                        <mat-icon>power_settings_new</mat-icon>
+                                        <span>Log Out</span>
+                                    </button>
+
+                                </mat-menu>
+
                             </div>
                         </div>
                     </div>
@@ -95,5 +130,5 @@
             <img src="assets/images/pattern-2.png" />
         </div>
     </div>
-    
+
 </mat-toolbar>
