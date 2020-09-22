@@ -11,7 +11,7 @@ import { CommonService } from '../service/common.service';
 export class ToolBarComponent implements OnInit {
 
   private subscription: Subscription = new Subscription();
-  constructor( private commonService:CommonService) { }
+  constructor( private commonService:CommonService,private route : Router) { }
 menuList=[]
   ngOnInit() {
   }
@@ -26,5 +26,8 @@ menuList=[]
       this.menuList=data
     }, error => {
     }));
+  }
+  profiledetails(){
+    this.route.navigate(['/admin/my-profile'])
   }
 }
