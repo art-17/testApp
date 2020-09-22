@@ -41,6 +41,9 @@
     </div>
     <mat-dialog-actions align="end">
         <button mat-button class="btn-outline-0-primary" mat-dialog-close >Cancel and Back</button>
-        <button mat-button  cdkFocusInitial class="btn btn-primary mb-2" (click)="createAdmin()">Create Account</button>
+        <button mat-button  cdkFocusInitial class="btn btn-primary mb-2" (click)="createAdmin()">
+            <span *ngIf="!data.status">Create Account </span>
+            <span *ngIf="data.status">Edit Account </span>
+        </button>
     </mat-dialog-actions>
 </div>
