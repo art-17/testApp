@@ -25,7 +25,7 @@
                             <img  *ngIf="menu.menuName=='Create New Parking'" src="assets/images/m-4.svg" class="menu-item-icon">
                             <img *ngIf="menu.menuName=='Contact Admin'" src="assets/images/m-6.svg" class="menu-item-icon">
                             <h5>{{menu.menuName}}</h5>
-                            <!-- <p class="c-muted">Catalog of Parking Places</p> -->
+                            <p class="c-muted">{{menu.subText}}</p>
                         </div>
                     </button>
                     <!-- <button mat-menu-item>
@@ -74,10 +74,15 @@
                                     <span>DE</span>
                                 </div>
                                   <mat-menu #menu="matMenu">
+                                    <button mat-menu-item (click)="profiledetails()">
+                                        <mat-icon>power_settings_new</mat-icon>
+                                        <span>Profile Details</span>
+                                      </button>
                                     <button mat-menu-item>
                                       <mat-icon>power_settings_new</mat-icon>
                                       <span>Log Out</span>
                                     </button>
+                                    
                                   </mat-menu>
                                 
                             </div>
