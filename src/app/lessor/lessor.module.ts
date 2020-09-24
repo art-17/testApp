@@ -5,17 +5,20 @@ import { LessorRoutingModule } from './lessor-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
+import { LessorRegistrationComponent } from './lessor-registration/lessor-registration.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [ProfileDetailsComponent],
+  declarations: [ProfileDetailsComponent, LessorRegistrationComponent],
   imports: [
     LessorRoutingModule,
     CommonModule,
     SharedModule,
     MaterialModule,
-    CoreModule
+    CoreModule,
+    ReactiveFormsModule
   ]
 })
 export class LessorModule { }
