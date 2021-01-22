@@ -1,0 +1,27 @@
+<mat-dialog-content>
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+        <label class="btn btn-outline-primary active">
+            <input type="radio" name="options" id="option1" autocomplete="off" checked>
+            CBSE
+        </label>
+        <label class="btn btn-outline-primary">
+            <input type="radio" name="options" id="option2" autocomplete="off"> ICSE
+        </label>
+        <label class="btn btn-outline-primary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> IB
+        </label>
+        <label class="btn btn-outline-primary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> IGCSE
+        </label>
+        <label class="btn btn-outline-primary">
+            <input type="radio" name="options" id="option3" autocomplete="off"> Advance
+            level
+        </label>
+    </div>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button mat-button (click)="onYesClick()" tabindex="1" class="btn btn-secondary">Done</button>
+      <button mat-button mat-dialog-close tabindex="-1">Cancel</button>
+</mat-dialog-actions>
+    
+    

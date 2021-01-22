@@ -1,134 +1,23 @@
-<mat-toolbar class="toolbar-primary">
-    <div class="app-header header-shadow">
-        <div class="app-header__logo">
-            <div class="logo-src">
-                <img src="assets/images/logo-main.png" />
-            </div>
-        </div>
-        <div class="app-header__content">
-            <div class="app-header-left ">
-                <ul class="header-megamenu nav">
-                    <li class="nav-item" [matMenuTriggerFor]="megamenu" (click)="ongetMenu()">
-                        <a href="javascript:void(0);" data-placement="bottom" rel="popover-focus" data-offset="300"
-                            data-toggle="popover-custom" class="nav-link mat-menu-link" data-original-title="" title="">
-                            <i class="nav-link-icon pe-7s-gift "> </i> Explore<span
-                                class="material-icons">expand_more</span>
-                        </a>
-                    </li>
-                </ul>
-                <mat-menu #megamenu="matMenu" class="mega-menu">
-
-                    <button mat-menu-item *ngIf="isloading">
-                        <div class="menu-content">
-                            <ngx-shimmer-loading [width]="'50px'" [height]="'60px'"></ngx-shimmer-loading>
-
-
-                        </div>
-                    </button>
-                    <button mat-menu-item *ngIf="isloading">
-                        <div class="menu-content">
-                            <ngx-shimmer-loading [width]="'50px'" [height]="'60px'"></ngx-shimmer-loading>
-
-                        </div>
-                    </button>
-                    <button mat-menu-item *ngIf="isloading">
-                        <div class="menu-content">
-                            <ngx-shimmer-loading [width]="'50px'" [height]="'60px'"></ngx-shimmer-loading>
-
-
-                        </div>
-                    </button>
-                    <button mat-menu-item *ngIf="isloading">
-                        <div class="menu-content">
-                            <ngx-shimmer-loading [width]="'50px'" [height]="'60px'"></ngx-shimmer-loading>
-
-
-                        </div>
-                    </button>
-
-                    <button mat-menu-item *ngFor="let menu of menuList">
-                        <div class="menu-content" (click)="onNavigation(menu.menuName)">
-                            <img *ngIf="menu.menuName=='Parking Places'" src="assets/images/m-1.svg"
-                                class="menu-item-icon">
-                            <img *ngIf="menu.menuName=='Invoices'" src="assets/images/m-2.svg" class="menu-item-icon">
-                            <img *ngIf="menu.menuName=='Registration of Lessor'" src="assets/images/m-3.svg"
-                                class="menu-item-icon">
-                            <img *ngIf="menu.menuName=='Registration of Admin'" src="assets/images/m-4.svg"
-                                class="menu-item-icon">
-                            <img *ngIf="menu.menuName=='Create New Parking'" src="assets/images/m-4.svg"
-                                class="menu-item-icon">
-                            <img *ngIf="menu.menuName=='Contact Admin'" src="assets/images/m-6.svg"
-                                class="menu-item-icon">
-                            <h5>{{menu.menuName}}</h5>
-                            <p class="c-muted">{{menu.subText}}</p>
-                        </div>
-                    </button>
-                    <!-- <button mat-menu-item>
-                        <div class="menu-content">
-                            <img src="assets/images/m-2.svg" class="menu-item-icon">
-                            <h5>Invoices</h5>
-                            <p class="c-muted">Catalog of Invoices</p>
-                        </div>
-                    </button> -->
-                    <!-- <button mat-menu-item>
-                        <div class="menu-content">
-                            <img src="assets/images/m-3.svg" class="menu-item-icon">
-                            <h5>Registration of Lessor</h5>
-                            <p class="c-muted">A step wise form for the entry of new Record</p>
-                        </div>
-                    </button> -->
-                    <!-- <button mat-menu-item>
-                        <div class="menu-content">
-                            <img src="assets/images/m-4.svg" class="menu-item-icon">
-                            <h5>Registration of Admin</h5>
-                            <p class="c-muted">A simple entry form</p>
-                        </div>
-                    </button> -->
-                    <!-- <button mat-menu-item>
-                        <div class="menu-content">
-                            <img src="assets/images/m-5.svg" class="menu-item-icon">
-                            <h5>Create New Parking Place</h5>
-                            <p class="c-muted">A step wise form for the entry of new Record.</p>
-                        </div>
-                    </button> -->
-                    <!-- <button mat-menu-item>
-                        <div class="menu-content">
-                            <img src="assets/images/m-6.svg" class="menu-item-icon">
-                            <h5>Contact Admin</h5>
-                            <p class="c-muted">Can contact admin for any help.</p>
-                        </div>
-                    </button> -->
-                </mat-menu>
-            </div>
-            <div class="app-header-right">
-                <div class="header-btn-lg pr-5">
-                    <div class="widget-content p-0 pr-5">
-                        <div class="widget-content-wrapper">
-                            <div class="widget-content-left">
-                                <div class="user-avatar sm bg-azure-dim f-weight-400" [matMenuTriggerFor]="menu">
-                                    <span>DE</span>
-                                </div>
-                                <mat-menu #menu="matMenu">
-                                    <button mat-menu-item (click)="profiledetails()">
-                                        <mat-icon>power_settings_new</mat-icon>
-                                        <span>Profile Details</span>
-                                    </button>
-                                    <button mat-menu-item>
-                                        <mat-icon>power_settings_new</mat-icon>
-                                        <span>Log Out</span>
-                                    </button>
-
-                                </mat-menu>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="pattern-2">
-            <img src="assets/images/pattern-2.png" />
-        </div>
-    </div>
-
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"  (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+    </button> -->
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+    </button>
 </mat-toolbar>
+<!-- <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav [mode]="push"> Sidenav content </mat-sidenav>
+  
+    <mat-sidenav-content>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container> -->

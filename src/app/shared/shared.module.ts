@@ -2,14 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToolBarComponent } from './tool-bar/tool-bar.component';
 import { MaterialModule } from '../material/material.module';
-import { LoadingComponent } from './loading/loading.component';
 import { NgxShimmerLoadingModule } from  'ngx-shimmer-loading';
-import { ToolbarComponent } from './tool-bar/skeleton/toolbar/toolbar.component';
-import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
+import { DiaologsComponent } from './diaologs/diaologs.component';
 
 
 @NgModule({
-  declarations: [ToolBarComponent,LoadingComponent, ToolbarComponent,ErrorDialogComponent],
+  declarations: [ToolBarComponent, SidenavComponent, DiaologsComponent],
   imports: [
     CommonModule,
     MaterialModule,
@@ -17,7 +16,7 @@ import { ErrorDialogComponent } from './error-dialog/error-dialog.component';
     
   ],
   exports:[ToolBarComponent],
-  entryComponents:[LoadingComponent,ErrorDialogComponent]
+  entryComponents:[]
  
 })
 export class SharedModule { }
