@@ -1,3 +1,6 @@
-# parksharing-web
+# machine test project
 
-City parking
+Versions used:
+
+@angular/cli: "~8.3.10",
+@angular/material: "^8.2.3",

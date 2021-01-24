@@ -1,6 +1,14 @@
-<mat-drawer #drawer [(opened)]="!mobileQuery.matches" class="example-sidenav" [mode]="mobileQuery.matches ? 'over' : 'side'">
-
-    <p>Auto-resizing sidenav</p>
-    <p >Lorem, ipsum dolor sit amet consectetur.</p>
-
-</mat-drawer>
+<mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" *ngIf="sidenavexpadable.isExpanded">
+    <mat-nav-list>
+        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+            <span class="full-width" >Parent Menu 1</span>
+            <mat-icon mat-list-icon>home</mat-icon>
+        </mat-list-item>
+        <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+            <span class="full-width" >Parent Menu 2</span>
+            <mat-icon mat-list-icon>dialpad</mat-icon>
+        </mat-list-item>
+    </mat-nav-list>
+<mat-nav-list>
+</mat-nav-list>
+</mat-sidenav>

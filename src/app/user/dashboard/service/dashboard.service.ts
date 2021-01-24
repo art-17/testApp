@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DashboardService {
-
+  isExpanded: boolean = true;
   constructor(private httpclient:HttpClient) {}
 
 
@@ -16,4 +16,5 @@ export class DashboardService {
         return  this.httpclient.get(url);
     
     }
+  
 }

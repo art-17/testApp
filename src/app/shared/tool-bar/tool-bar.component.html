@@ -1,7 +1,14 @@
 <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button class="example-icon btn-menu-expand" aria-label="Example icon-button with menu icon" (click)="sidenavexpadable.isExpanded = !sidenavexpadable.isExpanded">
         <mat-icon>menu</mat-icon>
     </button>
+     <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" >
+        <mat-icon>menu</mat-icon>
+    </button> -->
+ 
+    <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+    </button> -->
     <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon"  (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
     </button> -->

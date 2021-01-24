@@ -15,7 +15,7 @@ import { DiaologsComponent } from './diaologs/diaologs.component';
     NgxShimmerLoadingModule
     
   ],
-  exports:[ToolBarComponent],
+  exports:[ToolBarComponent, SidenavComponent],
   entryComponents:[]
  
 })

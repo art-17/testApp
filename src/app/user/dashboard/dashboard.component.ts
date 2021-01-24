@@ -1,5 +1,5 @@
-import { stringify } from '@angular/compiler/src/util';
-import { Component, OnInit, ViewChild } from '@angular/core';
+
+import {  Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MatTableDataSource } from '@angular/material';
 import { Subscription } from 'rxjs';
 import { DiaologsComponent } from 'src/app/shared/diaologs/diaologs.component';
@@ -11,8 +11,8 @@ import { DashboardService } from './service/dashboard.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
-  // subscription: any;
+export class DashboardComponent implements OnInit,OnDestroy {
+  mobileQuery: MediaQueryList;
   subscription: Subscription = new Subscription();
   dataSource = new MatTableDataSource<any>();
   monthlyPlanList: any;
@@ -22,8 +22,8 @@ export class DashboardComponent implements OnInit {
   selectionsub:any;
   selectedgrade:any;
   selected_syllabus:any;
-  constructor( private dashboardService: DashboardService, public dialog: MatDialog) { }
-
+  constructor( private dashboardService: DashboardService, public dialog: MatDialog) {  }
+ 
   ngOnInit() {
     this.fetchPlan();
 
@@ -36,7 +36,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  displayedColumns: string[] = ['valid', 'price', 'total_sessions'];
+  displayedColumns: string[] = ['select', 'valid', 'price', 'total_sessions'];
   // dataSource = ELEMENT_DATA;
 
   dataList: any;
@@ -64,28 +64,52 @@ export class DashboardComponent implements OnInit {
     ))
   }
   selctionGrade(){
-   const data = this.selectGrade.boards.general;
-   const columndata = []
-   for (let key in data) {
-    columndata.push(data[key]);
+  //  const data = this.selectGrade.boards.general;
+  //  const columndata = []
+  //  for (let key in data) {
+  //   columndata.push(data[key]);
+  // }
+  // this.dataSource.data = columndata;
+  //   // console.log(this.selectGrade);
+  //   console.log(this.dataSource);
+  const columndata = []
+   for (let pkey in this.selectGrade.boards) {
+     console.log(pkey)
+   for (let key in this.selectGrade.boards[pkey]) {
+    columndata.push(this.selectGrade.boards[pkey][key]);
   }
+}
   this.dataSource.data = columndata;
-    // console.log(this.selectGrade);
-    console.log(this.dataSource);
   }
-
+  courses:string[];
+  selectedcourse:string = '';
   selectionYearly(){
     this.selectedgrade = this.yearly.boards;
     this.selectionsub = this.yearly.boards.CBSE;
     console.log(this.selectionsub,this.yearly.boards);
-    
-    this.selected_syllabus = this.selectionsub.syllabus.split('!');
+    this.courses = Object.keys(this.yearly.boards);
+    this.selectedcourse = this.courses[0];
    }
+  //  selectedsyllabus(){
+  //   if(this.selectionsub && typeof  this.selectionsub.syllabus ==='string'){
+  //     const picked = (({ syllabus }) => ({ syllabus}))(this.selectionsub);
+  //     this.selected_syllabus =  [{...picked}];
+  //     }else if(this.selectionsub){
+  //     this.selected_syllabus = this.selectionsub.syllabus;
+  //   }else{
+  //     this.selected_syllabus = []
+  //   }
+  //  }
    subfilter(key){
      if(this.selectedgrade){
-    this.selectionsub = this.selectedgrade[key];
-    console.log(this.selectionsub)
+      this.selectedcourse = key;
+      this.selectionsub = this.selectedgrade[key];
+      console.log(this.selectionsub)
      }
    }
+   
+   ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+ }
 }
 
