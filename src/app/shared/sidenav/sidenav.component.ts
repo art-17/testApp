@@ -1,5 +1,5 @@
-import { MediaMatcher } from '@angular/cdk/layout';
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { DashboardService } from 'src/app/user/dashboard/service/dashboard.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,20 +12,30 @@ export class SidenavComponent implements OnInit {
   mobileQuery: MediaQueryList;
   isExpanded: boolean = true;
 
-  constructor(
-    private changeDetectorRef: ChangeDetectorRef,
-    private media: MediaMatcher) {
+  // isExpanded = true;
+  showSubmenu: boolean = false;
+  // isShowing = false;
+  showSubSubMenu: boolean = false;
 
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
+  constructor(
+    public sidenavexpadable: DashboardService,
+    private changeDetectorRef: ChangeDetectorRef) {
+      
+
+    // this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    // this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+    // this.mobileQuery.addListener(this._mobileQueryListener);
   }
   ngOnInit() {
+    if(screen.width <= 768){
+      this.sidenavexpadable.isExpanded = false;
+    }
+
   }
-  private _mobileQueryListener: () => void;
-  ngOnDestroy(): void {
-    this.mobileQuery.removeListener(this._mobileQueryListener);
-  }
+  // private _mobileQueryListener: () => void;
+  // ngOnDestroy(): void {
+  //   this.mobileQuery.removeListener(this._mobileQueryListener);
+  // }
 
 
 
